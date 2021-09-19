@@ -1,0 +1,1215 @@
+   #updating a string:-
+#Method1;-
+>>> text = "abcdefg"
+>>> new = list(text)
+>>> new[6] = 'W'
+>>> ''.join(new)
+'abcdefW'
+>>> new[5]='p'
+>>> new
+['a', 'b', 'c', 'd', 'e', 'p', 'W']
+>>> ''.join(new)
+'abcdepW'
+
+
+
+
+#Method2
+
+
+text = 'Pranjul'
+text = text[:3]+'sh'+text[5:]
+
+
+#printing raw string in hex format
+>>> string = "\x47\x65\x6b\x73"
+>>> string
+'Geks'
+
+>>> string = r"\x47\x65\x6b\x73"
+>>> string
+'\\x47\\x65\\x6b\\x73'
+
+
+#Formatting of Strings
+
+#Default Order
+>>> string1 = "{} {} {}".format('Geeks','For','Life')
+>>> print(string1)
+Geeks For Life
+
+#Positional formatting
+>>> string1 ="{1} {0} {2}".format('Geeks', 'for','life')
+>>> string1
+'for Geeks life'
+
+
+#Keyword Formatting
+>>> string1 = "{l} {f} {g}".format(g= "Geeks",f = "For",l="5")
+>>> string1
+'5 For Geeks'
+
+
+#formatting of integers
+>>> string1 = "{0:b}".format(16)
+>>> string1
+'10000'
+
+
+#formatting of floats
+>>> string1 = "{0:e}".format(165.6458)
+>>> string1
+'1.656458e+02'
+
+#rounding off integers
+>>> string1 = "{0:.2f}".format(1/6)
+>>> string1
+'0.17'
+>>> string1 = "{0:.2f}".format(1/3)
+>>> string1
+'0.33'
+
+
+
+#List
+
+>>> List = []
+>>> List
+[]
+>>> List = [['Geeks','For'],['Geeks']]
+>>> List
+[['Geeks', 'For'], ['Geeks']]
+>>> #append(), insert(), extend()
+>>> List = []
+>>> List.append(1)
+>>> List.append(2)
+>>> List
+[1, 2]
+>>> List.insert(3,12)
+>>> List.insert(0,'Geeks')
+>>> List
+['Geeks', 1, 2, 12]
+>>>
+>>> #using extend()
+>>> List.extend([8,'Geeks','Always'])
+>>> List
+['Geeks', 1, 2, 12, 8, 'Geeks', 'Always']
+
+
+List c++ k vactor jaisi hi hoti h. list me duplicate element ho skte h
+list me mixed values bhi daal skte h(Having numbers and string).
+
+
+ #removing elements frmom the list
+>>> List = [1, 2, 3, 4, 5, 6,
+...         7, 8, 9, 10, 11, 12]
+>>> List.remove(5)
+>>> print(List)
+[1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12]
+>>> List.remove(6)
+>>> List
+[1, 2, 3, 4, 7, 8, 9, 10, 11, 12]
+>>> List.pop()
+12
+>>> List
+[1, 2, 3, 4, 7, 8, 9, 10, 11]
+
+
+ #knowing the size of list
+>>> len(List)
+9
+
+ #List comprehension
+>>> list2 =[x ** 2 for x in range(1,11) if x%2 == 0]
+>>> #print even number
+>>> list2
+[4, 16, 36, 64, 100]
+
+
+#lambda expression
+in Python, an anonymous function means that a function is without a name. 
+As we already know that the def keyword is used to define a normal function in Python. 
+Similarly, the lambda keyword is used to define an anonymous function in Python. It has the following syntax: 
+
+Syntax: lambda arguments: expression
+
+cube = lambda x : x*x*x
+>>> cube(5)
+125
+
+
+Using lambda() Function with reduce()
+The reduce() function in Python takes in a function and a list as an argument.
+The function is called with a lambda function and an iterable and a new reduced result is returned. 
+This performs a repetitive operation over the pairs of the iterable. 
+The reduce() function belongs to the  functools module. 
+
+
+from functools import reduce
+li = [5, 8, 10, 20, 50, 100]
+sum = reduce((lambda x, y: x + y), li)
+print (sum)
+
+#tuple
+Tuple is an ordered collection of Python objects much like a list.
+The important difference between a list and a tuple is that tuples are immutable. 
+It is represented by tuple class. 
+In Python, tuples are created by placing a sequence of values separated by ‘comma’ with or without the use of parentheses for grouping of the data sequence.
+
+
+>>> tuple1 = (0,1,2,3)
+>>> tuple2 = ('python', 'geek')
+>>> tuple3 = (tuple1, tuple2)
+>>> tuple3
+((0, 1, 2, 3), ('python', 'geek'))
+>>> #creating a tuple of list (or packing of tuple)
+>>> print(tuple([0,1,2,3,4,5,6]))
+(0, 1, 2, 3, 4, 5, 6)
+
+
+ # crating a tuple woth mixed value
+>>> tuple1 = (5, 'Welcome', 7, 'Geeks')
+>>> tuple1
+(5, 'Welcome', 7, 'Geeks')
+
+#Creating a Tuple
+#with the use of loop
+Tuple1 = ('Geeks')
+n = 5
+print("\nTuple with a loop")
+for i in range(int(n)):
+    Tuple1 = (Tuple1,)
+    print(Tuple1)
+
+('Geeks',)
+(('Geeks',),)
+((('Geeks',),),)
+(((('Geeks',),),),)
+((((('Geeks',),),),),)
+
+
+
+
+#accessing tuple
+>>> tuple1 = tuple("Geeks")
+>>> tuple1[1]
+'e'
+>>> #tuple unpacking
+>>> tuple1 = ("Geeks", "For", "geeks")
+>>> #this line unpack values of tuple1
+>>> a, b, c = tuple1
+>>> a
+'Geeks'
+>>> b
+'For'
+>>> c
+'geeks'
+
+
+
+#concatenation of tuple (same datatype can be concatenate like tuple with list not allowed)
+>>> tuple1 = (0,1,2,3)
+>>> tuple2 = ('Geeks', 'For', 'Geeks')
+>>> tuple3 = tuple1 + tuple2
+>>> tuple1
+(0, 1, 2, 3)
+>>> tuple2
+('Geeks', 'For', 'Geeks')
+>>> tuple3
+(0, 1, 2, 3, 'Geeks', 'For', 'Geeks')
+
+
+
+#slicing of a tuple
+>>> tuple1 = tuple('Geeksforgeeks')
+>>>
+>>> #removing first element
+>>> tuple1[1:]
+('e', 'e', 'k', 's', 'f', 'o', 'r', 'g', 'e', 'e', 'k', 's')
+>>> #reversing the tuple
+>>> tuple1[::-1]
+('s', 'k', 'e', 'e', 'g', 'r', 'o', 'f', 's', 'k', 'e', 'e', 'G')
+>>> tuple1[4:9]
+('s', 'f', 'o', 'r', 'g')
+
+
+
+Set
+In Python, Set is an unordered collection of data type that is iterable, mutable and has no duplicate elements. 
+The order of elements in a set is undefined though it may consist of various elements. 
+Sets can be created by using the built-in set() function with an iterable object 
+or a sequence by placing the sequence inside curly braces {}, separated by ‘comma’.
+
+
+
+ #Set
+>>> set1 = set()
+>>> set1 = set("GeeksForGeeks')
+>>> set1 = set("GeeksForGeeks")
+>>> set1 = set(["Geeks", "For", "Geeks"])
+>>> set1
+{'Geeks', 'For'}
+>>> #addition to the set using add()
+>>> set1.add(8)
+>>> set1.add((6,7))
+>>> set1
+{'Geeks', 'For', (6, 7), 8}
+>>> #addition to the set using update()
+>>> set1.update([10,11])
+>>> set1
+{8, 10, 11, (6, 7), 'Geeks', 'For'}
+>>> #acessing a set
+>>> set1 = set(["Geeks", "For", "Geeks"])
+>>> for i in set1:
+...     print(i, end = " ")
+...
+Geeks For >>>
+>>> # Python program to demonstrate
+>>> # Deletion of elements in a Set
+>>>
+>>> set1 = set([1, 2, 3, 4, 5, 6,
+...             7, 8, 9, 10, 11, 12])
+SyntaxError: invalid syntax
+>>> # using remove() method
+>>> set1.remove(5)
+>>> set1.remove(6)
+>>> set1
+{1, 2, 3, 4, 7, 8, 9, 10, 11, 12}
+>>> #using discard() method
+>>> set1.discard(8)
+>>> set1
+{1, 2, 3, 4, 7, 9, 10, 11, 12}
+>>> set1.discard(9)
+>>> set1
+{1, 2, 3, 4, 7, 10, 11, 12}
+>>> #using pop() method
+>>> set1.pop()
+1
+>>> set1.clear()
+>>> set1
+set()
+
+
+
+Dictionary
+
+Dictionary in Python is an unordered collection of data values, used to store data values like a map. 
+Dictionary holds key:value pair. Each key-value pair in a Dictionary is separated by a colon :, 
+whereas each key is separated by a ‘comma’. A Dictionary can be created by placing a 
+sequence of elements within curly {} braces, separated by ‘comma’.
+
+
+ #Dicitionary
+>>> Dict = {}
+>>> # with integer keys
+>>> Dict = {1:'Geeks', 2: 'For', 3: 'Geeks'}
+>>> Dict
+{1: 'Geeks', 2: 'For', 3: 'Geeks'}
+>>> #with mixed keys
+>>> Dict = {'Name' : 'Geeks', 1: [1,2,3,4]}
+>>> Dict
+{'Name': 'Geeks', 1: [1, 2, 3, 4]}
+
+
+
+>>> Dict = {1: 'Geeks', 2: 'For', 3:{'A' : 'Welcome', 'B' : 'To', 'C' : 'geeks'}}
+>>> Dict
+{1: 'Geeks', 2: 'For', 3: {'A': 'Welcome', 'B': 'To', 'C': 'geeks'}}
+
+
+#Creating an empty Dicitionary
+>>> Dict = {}
+>>> Dict[0] = 'Geeks'
+>>> Dict[2] = 'For'
+>>> Dict[3] = 1
+>>> Dict
+{0: 'Geeks', 2: 'For', 3: 1}
+
+
+#accesing elements from a dicitionary
+>>> Dict = {1: 'Geeks', 'name': 'For', 3: 'Geeks'}
+>>> #accessing a element using key
+>>> Dict['name']
+'For'
+>>> #accessinf a element using get()
+>>> Dict.get(3)
+
+
+#Removing Elements From Dicitionary (Using pop() and popitem())
+>>> Dict = { 5 : 'Welcome', 6 : 'To', 7:'Geeks', 'A' : {1: 'Geeks', 2 : 'For', 3:'Geeks'},}
+>>> #using pop()
+>>> Dict.pop(5)
+'Welcome'
+>>> #using popitem()
+>>> Dict.popitem()
+('A', {1: 'Geeks', 2: 'For', 3: 'Geeks'})
+
+
+
+ #Creating a Dicitinary with dict() method
+>>> Dict = dict({1: 'Geeks',2: 'For', 3:'Geeks'})
+>>> Dict
+{1: 'Geeks', 2: 'For', 3: 'Geeks'}
+
+
+ Dict = dict([(1,'Geeks'), (2,'For')])
+>>> Dict
+{1: 'Geeks', 2: 'For'}
+
+
+
+#adding elements to a dicitioanary
+>>> Dict = {}
+>>> Dict
+{}
+>>> Dict[0] = 'Geeks'
+>>> Dict[2] = 'for'
+>>> Dict[3] = 1
+>>> Dict
+{0: 'Geeks', 2: 'for', 3: 1}
+
+
+
+Dict['Value_Set'] = 2,3,4
+>>> Dict
+{0: 'Geeks', 2: 'for', 3: 1, 'Value_Set': (2, 3, 4)}
+
+#upadting existing key's value
+>>> Dict[2] = 'Welcome'
+>>> Dict
+{0: 'Geeks', 2: 'Welcome', 3: 1, 'Value_Set': (2, 3, 4)}
+
+
+#adding nested key value to dicitionary
+>>> Dict[5] = {'Nested' :{'1' : 'Life', '2' : 'Geeks'}}
+>>> Dict
+{0: 'Geeks', 2: 'Welcome', 3: 1, 'Value_Set': (2, 3, 4), 5: {'Nested': {'1': 'Life', '2': 'Geeks'}}}
+
+
+
+#range function
+
+range(start,stop,step)
+
+
+>>> for i in range(15,25,3):
+...     print(i,end =" ")
+...
+15 18 21 24
+
+
+
+
+Loop control statements:-
+
+Break: Break statement in Python is used to bring the control 
+       out of the loop when some external condition is triggered.
+Continue: Continue statement is opposite to that of break statement, 
+          instead of terminating the loop, it forces to execute the next iteration of the loop.
+Pass: Pass statement is used to write empty loops. 
+      Pass is also used for empty control statement, function and classes.
+
+
+>>> s = "pranjul"
+>>> for letter in s:
+...     if letter =='e' or letter == 's':
+...             continue
+...     print(letter,end = " ")
+...
+p r a n j u l >>>
+>>> for letter in s:
+...     if letter == 'e' or letter =='s':
+...             pass
+...     print(letter,end = " ")
+...
+p r a n j u l >>>
+
+
+
+
+#Functions : -
+>>> def ask_user():
+...     print("Hello Pranjul")
+...
+>>> ask_user()
+Hello Pranjul
+>>> def my_func():
+...     a=0
+...     for i in range(1,11):
+...             a=a+i
+...     return a
+...
+>>> print(my_func())
+55
+
+
+
+#Keyword arguments
+
+#keyword_arguments
+>>> def student(firstname, lastname):
+...     print(firstname + lastname)
+...
+>>> student(firstname ='Pranjul', lastname = 'Chaurasiya')
+PranjulChaurasiya
+
+#Variable length arguments
+
+#variable arguments
+def myFun1(*argv):
+...     for arg in argv:
+...             print(arg,end=" ")
+...
+
+>>> myFun1('Pranjul','you','are','great')
+Pranjul you are great.
+
+
+#variable keyword argument
+
+>>> def myFun2(**kwargs):
+...     for key,value in kwargs.items():
+...             print("% s == % s" %(key,value))
+...
+>>>
+>>> myFun2(first_name = 'Pranjul',last_name = 'Chaurasiya')
+first_name == Pranjul
+last_name == Chaurasiya
+
+
+#lambda functions
+
+In Python, the lambda/anonymous function means that a function is without a name.
+The lambda keyword is used to create anonymous functions.
+Lambda function can have any number of arguments but has only one expression
+
+
+ #list comprehension using lambda
+>>> a = [(lambda x: x*2)(x) for x in range(5)]
+>>> a
+[0, 2, 4, 6, 8]
+
+
+
+#Object oriented programming
+
+1)Objects
+2)Class
+3)Inheritance
+4)Encapsulation
+5)Polymorphism
+
+
+Classes and Objects
+Class creates a user-defined data structure,
+which holds its own data members and member functions, 
+which can be accessed and used by creating an instance of that class.
+A class is like a blueprint for an object.
+
+An Object is an instance of a Class.
+A class is like a blueprint while an instance is a copy of the class with actual values.
+
+
+class dog():
+    species1="mamal"
+    species2="dog"
+
+    #sample method
+    def fun(self):
+        print("This is a", self.species1)
+        print("This is a", self.species2)
+#object intiation
+rodger = dog()  
+#acessing class attributes and method through objects
+print(rodger.species1)
+rodger.fun()
+
+
+The self
+
+self represents the instance of the class. 
+By using the “self” keyword we can access the attributes and methods of the class in python. 
+It binds the attributes with the given arguments.
+
+
+
+
+
+
+
+class car():
+      
+    # init method or constructor
+    def __init__(self, model, color):
+        self.model = model
+        self.color = color
+          
+    def show(self):
+        print("Model is", self.model )
+        print("color is", self.color )
+          
+# both objects have different self which 
+# contain their attributes
+audi = car("audi a4", "blue")
+ferrari = car("ferrari 488", "green")
+  
+audi.show()     # same output as car.show(audi)
+ferrari.show()  # same output as car.show(ferrari)
+ 
+
+ 
+# Behind the scene, in every instance method 
+# call, python sends the instances also with
+# that method call like car.show(audi)
+
+
+Output: 
+Model is audi a4
+color is blue
+Model is ferrari 488
+color is green
+Self is a convention and not a real python keyword
+self is parameter in function and user can use another parameter name in place of it.
+But it is advisable to use self because it increase the readability of code.
+
+
+  
+class this_is_class: 
+    def show(in_place_of_self): 
+        print("we have used another "
+        "parameter name in place of self") 
+          
+object = this_is_class() 
+object.show() 
+
+
+Output:
+we have used another parameter name in place of self
+
+
+
+
+
+Constructors and Destructors
+Constructors: Constructors are generally used for instantiating an object.
+The task of constructors is to initialize(assign values) to the 
+data members of the class when an object of class is created. 
+In Python the __init__() method is called the constructor and 
+always called when an object is created. 
+There can be two types of constructors:
+
+Default constructor: The constructor which is called 
+implicilty and do not accept any argument.
+
+
+Parameterized constructor:Constructor which is called 
+explicitly with parameters is known as parameterized constructor.
+
+
+
+
+Destructors: Destructors are called when an object gets destroyed.
+The __del__() method is a known as a destructor method in Python.
+It is called when all references to the object have been deleted 
+i.e when an object is garbage collected.
+
+# Python program to illustrate destructor 
+class Employee: 
+   
+    # Initializing 
+    def __init__(self): 
+        print('Employee created.') 
+   
+    # Deleting (Calling destructor) 
+    def __del__(self): 
+        print('Destructor called, Employee deleted.') 
+   
+obj = Employee() 
+del obj 
+
+Output:
+
+Employee created.
+Destructor called, Employee deleted.
+
+
+
+
+Inheritance:-
+
+Inheritance is the ability of any class to extract 
+and use features of other classes. 
+It is the process by which new classes called the derived classes 
+are created from existing classes called Base classes.
+
+
+
+
+# A Python program to demonstrate inheritance  
+   
+ 
+class Person(): 
+       
+    # Constructor 
+    def __init__(self, name): 
+        self.name = name 
+   
+    # To get name 
+    def getName(self): 
+        return self.name 
+   
+    # To check if this person is employee 
+    def isEmployee(self): 
+        return False
+   
+   
+# Inherited or Sub class (Note Person in bracket) 
+class Employee(Person): 
+   
+    # Here we return true 
+    def isEmployee(self): 
+        return True
+   
+# Driver code 
+emp = Person("Geek1")  # An Object of Person 
+print(emp.getName(), emp.isEmployee()) 
+   
+emp = Employee("Geek2") # An Object of Employee 
+print(emp.getName(), emp.isEmployee())
+
+
+Output:
+
+Geek1 False
+Geek2 True
+
+
+
+
+Looping Through a Slice:-
+
+
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print("Here are the first three players on my team:")
+for player in players[:3]:
+ print(player.title())
+
+
+
+
+Copying a List:-
+
+ my_foods = ['pizza', 'falafel', 'carrot cake']
+ friend_foods = my_foods[:]
+
+
+
+
+
+Checking Whether a Value Is in a List:-
+
+>>> requested_toppings = ['mushrooms', 'onions', 'pineapple']
+>>> 'mushrooms' in requested_toppings
+True
+>>> 'pepperoni' in requested_toppings
+False
+
+
+Checking That a List Is Not Empty:-
+
+requested_toppings = []
+if requested_toppings:
+ for requested_topping in requested_toppings:
+ print(f"Adding {requested_topping}.")
+ print("\nFinished making your pizza!")
+else:
+ print("Are you sure you want a plain pizza?")
+
+
+
+
+Using Multiple Lists:-
+
+
+ available_toppings = ['mushrooms', 'olives', 'green peppers',
+ 'pepperoni', 'pineapple', 'extra cheese']
+requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
+for requested_topping in requested_toppings:
+if requested_topping in available_toppings:
+ print(f"Adding {requested_topping}.")
+else:
+ print(f"Sorry, we don't have {requested_topping}.")
+
+print("\nFinished making your pizza!")
+
+
+
+
+Adding New Key-Value Pairs:-
+
+
+alien_0 = {'color': 'green', 'points': 5}
+print(alien_0)
+alien_0['x_position'] = 0
+alien_0['y_position'] = 25
+print(alien_0)
+
+
+
+Removing Key-Value Pairs:-
+
+alien_0 = {'color': 'green', 'points': 5}
+print(alien_0)
+del alien_0['points']
+print(alien_0)
+
+
+
+Using get() to Access Values:-
+
+
+point_value = alien_0.get('points', 'No point value assigned.')
+print(point_value)
+
+
+
+Key,value pair:-
+
+favorite_languages = {
+ 'jen': 'python',
+ 'sarah': 'c',
+ 'edward': 'ruby',
+ 'phil': 'python',
+ }
+for name, language in favorite_languages.items():
+print(f"{name.title()}'s favorite language is {language.title()}.")
+
+
+
+
+
+
+Looping Through All the Keys in a Dictionary:-
+
+
+favorite_languages = {
+ 'jen': 'python',
+ 'sarah': 'c',
+ 'edward': 'ruby',
+ 'phil': 'python',
+ }
+for name in favorite_languages.keys():
+ print(name.title())
+
+
+
+Looping Through a Dictionary’s Keys in a Particular Order:-
+
+
+favorite_languages = {
+ 'jen': 'python',
+ 'sarah': 'c',
+ 'edward': 'ruby',
+ 'phil': 'python',
+ }
+for name in sorted(favorite_languages.keys()):
+ print(f"{name.title()}, thank you for taking the poll.")
+
+
+
+Looping Through All Values in a Dictionary:-
+
+
+favorite_languages = {
+ 'jen': 'python',
+ 'sarah': 'c',
+ 'edward': 'ruby',
+ 'phil': 'python',
+ }
+print("The following languages have been mentioned:")
+for language in favorite_languages.values():
+ print(language.title())
+
+
+
+A List of Dictionaries:-
+
+
+alien_0 = {'color': 'green', 'points': 5}
+alien_1 = {'color': 'yellow', 'points': 10}
+alien_2 = {'color': 'red', 'points': 15}
+aliens = [alien_0, alien_1, alien_2]
+for alien in aliens:
+ print(alien)
+
+
+
+
+Moving Items from One List to Another:-
+
+
+# Start with users that need to be verified,
+_users.py # and an empty list to hold confirmed users.
+unconfirmed_users = ['alice', 'brian', 'candace']
+confirmed_users = []
+# Verify each user until there are no more unconfirmed users.
+# Move each verified user into the list of confirmed users.
+while unconfirmed_users:
+current_user = unconfirmed_users.pop()
+
+ print(f"Verifying user: {current_user.title()}")
+ confirmed_users.append(current_user)
+
+
+
+
+Removing All Instances of Specific Values from a List:-
+
+
+pets = ['dog', 'cat', 'dog', 'goldfish', 'cat', 'rabbit', 'cat']
+print(pets)
+while 'cat' in pets:
+ pets.remove('cat')
+
+print(pets)
+
+
+
+Preventing a Function from Modifying a List:-
+
+
+function_name(list_name[:])
+
+
+
+Passing an Arbitrary Number of Arguments:-
+
+def make_pizza(*toppings):
+ """Print the list of toppings that have been requested."""
+ print(toppings)
+
+make_pizza('pepperoni')
+make_pizza('mushrooms', 'green peppers', 'extra cheese')
+
+
+You’ll often see the generic parameter name *args, which collects arbitrary positional
+arguments like this.
+
+
+
+def build_profile(first, last, **user_info):
+ """Build a dictionary containing everything we know about a user."""
+ user_info['first_name'] = first
+ user_info['last_name'] = last
+ return user_info
+user_profile = build_profile('albert', 'einstein',
+ location='princeton',
+ field='physics')
+print(user_profile)
+
+Note:-You’ll often see the parameter name **kwargs used to collect non-specific keyword
+arguments.
+
+
+
+
+class Car:
+
+ def __init__(self, make, model, year):
+ """Initialize attributes to describe a car."""
+ self.make = make
+ self.model = model
+ self.year = year
+ self.odometer_reading = 0
+
+Modifying Attributr Values:-
+
+my_new_car.odometer_reading = 23
+my_new_car.read_odometer()
+
+Modifying an Attribute’s Value Through a Method:-
+
+class Car:
+ --snip--
+ def update_odometer(self, mileage):
+ """Set the odometer reading to the given value."""
+    self.odometer_reading = mileage
+
+
+my_new_car.update_odometer(23)
+my_new_car.read_odometer()
+
+
+Incrementing an Attribute’s Value Through a Method:-
+
+class Car:
+   --snip--
+
+   def update_odometer(self, mileage):
+   --snip--
+   def increment_odometer(self, miles):
+ """Add the given amount to the odometer reading."""
+ self.odometer_reading += miles
+
+
+The __init__() Method for a Child Class:-
+
+class Car:
+ """A simple attempt to represent a car."""
+ def __init__(self, make, model, year):
+ self.make = make
+ self.model = model
+ self.year = year
+ self.odometer_reading = 0
+
+ def get_descriptive_name(self):
+ long_name = f"{self.year} {self.manufacturer} {self.model}"
+ return long_name.title()
+
+ def read_odometer(self):
+ print(f"This car has {self.odometer_reading} miles on it.")
+
+ def update_odometer(self, mileage):
+ if mileage >= self.odometer_reading:
+ self.odometer_reading = mileage
+ else:
+ print("You can't roll back an odometer!")
+
+ def increment_odometer(self, miles):
+ self.odometer_reading += miles
+
+class ElectricCar(Car):
+ """Represent aspects of a car, specific to electric vehicles."""
+    def __init__(self, make, model, year):
+        """Initialize attributes of the parent class."""
+        super().__init__(make, model, year)
+
+my_tesla = ElectricCar('tesla', 'model s', 2019)
+print(my_tesla.get_descriptive_name())
+
+
+Overriding Methods from the Parent Class:-
+
+Say the class Car had a method called fill_gas_tank(). This method is
+meaningless for an all-electric vehicle, so you might want to override this
+method. Here’s one way to do that:
+
+
+class ElectricCar(Car):
+ --snip--
+ def fill_gas_tank(self):
+ """Electric cars don't have gas tanks."""
+ print("This car doesn't need a gas tank!")
+
+
+Instances as Attributes:-
+
+class Car:
+ --snip-- 
+
+class Battery:
+ """A simple attempt to model a battery for an electric car."""
+
+def __init__(self, battery_size=75):
+ """Initialize the battery's attributes."""
+ self.battery_size = battery_size
+
+def describe_battery(self):
+ """Print a statement describing the battery size."""
+ print(f"This car has a {self.battery_size}-kWh battery.")
+
+
+class ElectricCar(Car):
+ """Represent aspects of a car, specific to electric vehicles."""
+ def __init__(self, make, model, year):
+ """
+    Initialize attributes of the parent class.
+    Then initialize attributes specific to an electric car.
+    """
+    super().__init__(make, model, year)
+    self.battery = Battery()
+
+my_tesla = ElectricCar('tesla', 'model s', 2019)
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()
+
+
+The Python Standard Library:-
+
+One interesting function from the random module is randint().
+
+>>> from random import randint
+>>> randint(1, 6)
+3
+
+
+Another useful function is choice().
+
+>>> from random import choice
+>>> players = ['charles', 'martina', 'michael', 'florence', 'eli']
+>>> first_up = choice(players)
+>>> first_up
+'florence'
+
+
+
+Reading an Entire File:-
+
+with open('pi_digits.txt') as file_object:
+ contents = file_object.read()
+print(contents)
+
+
+If you want to remove the extra blank line,
+you can use rstrip() in the call to print()
+
+print(contents.rstrip())
+
+To get
+Python to open files from a directory other than the one where your program file is stored, you need to provide a file path, which tells Python to
+look in a specific location on your system.
+
+
+with open('text_files/filename.txt') as file_object:
+
+
+Absolute paths are usually longer than relative paths, so it’s helpful to
+assign them to a variable and then pass that variable to open()
+
+
+file_path = '/home/ehmatthes/other_files/text_files/filename.txt'
+with open(file_path) as file_object
+
+
+If you try to use backslashes in a file path, you’ll get an error because the backslash is
+used to escape characters in strings. For example, in the path "C:\path\to\file.txt",
+the sequence \t is interpreted as a tab. If you need to use backslashes, you can escape
+each one in the path, like this: "C:\\path\\to\\file.txt".
+
+Reading Line by Line:-
+
+
+filename = 'pi_digits.txt'
+
+with open(filename) as file_object:
+  for line in file_object:
+     print(line)
+	 
+These blank lines appear because an invisible newline character is at
+the end of each line in the text file. The print function adds its own newline each time we call it, so we end up with two newline characters at the
+end of each line: one from the file and one from print(). Using rstrip()
+
+
+Making a List of Lines from a File:-
+
+filename = 'pi_digits.txt'
+with open(filename) as file_object:
+    lines = file_object.readlines()
+for line in lines:
+   print(line.rstrip())
+   
+  
+ Note:- When Python reads from a text file, it interprets all text in the file as a string. If you
+read in a number and want to work with that value in a numerical context, you’ll
+have to convert it to an integer using the int() function or convert it to a float using
+the float() function.
+
+
+Large Files: One Million Digits:-
+
+filename = 'pi_million_digits.txt'
+with open(filename) as file_object:
+ lines = file_object.readlines()
+ 
+pi_string = ''
+for line in lines:
+ pi_string += line.strip()
+
+print(f"{pi_string[:52]}...")
+print(len(pi_string))
+
+
+Writing to an Empty File:-
+
+filename = 'programming.txt'
+with open(filename, 'w') as file_object:
+    file_object.write("I love programming.")
+
+in read mode ('r'), write mode ('w'), append mode ('a'), or a mode that allows
+you to read and write to the file ('r+'). If you omit the mode argument,
+Python opens the file in read-only mode by default.
+
+Note:-Python can only write strings to a text file. If you want to store numerical data in a
+text file, you’ll have to convert the data to string format first using the str() function.
+
+
+Appending to a File:-
+
+If you want to add content to a file instead of writing over existing content,
+you can open the file in append mode.
+
+filename = 'programming.txt'
+with open(filename, 'a') as file_object:
+	file_object.write("I also love finding meaning in large datasets.\n")
+    file_object.write("I love creating apps that can run in a browser.\n")
+
+Handling the ZeroDivisionError Exception:-
+
+
+Using try-except Blocks:-
+try:
+ print(5/0)
+except ZeroDivisionError:
+ print("You can't divide by zero!")
+ 
+ 
+The else Block:-
+We can make this program more error resistant by wrapping the line that
+might produce errors in a try-except block.
+
+try:
+ answer = int(first_number) / int(second_number)
+except ZeroDivisionError:
+ print("You can't divide by 0!")
+else:
+ print(answer)
+ 
+Using json.dump() and json.load():-
+
+import json
+numbers = [2, 3, 5, 7, 11, 13]
+filename = 'numbers.json'
+with open(filename, 'w') as f:
+   json.dump(numbers, f)
+   
+We first import the json module and then create a list of numbers to
+work with. At u we choose a filename in which to store the list of numbers.
+It’s customary to use the file extension .json to indicate that the data in
+the file is stored in the JSON format. Then we open the file in write mode,
+which allows json to write the data to the file v. At w we use the json.dump()
+function to store the list numbers in the file numbers.json.
+This program has no output, but let’s open the file numbers.json and
+look at it. The data is stored in a format that looks just like Python:
+
+Now we’ll write a program that uses json.load() to read the list back into
+memory.
+
+import json
+filename = 'numbers.json'
+with open(filename) as f:
+    numbers = json.load(f)
+print(numbers)
+
+
+Saving and Reading User-Generated Data:-
+
+import json
+username = input("What is your name? ")
+filename = 'username.json'
+with open(filename, 'w') as f:
+    json.dump(username, f)
+	print(f"We'll remember you when you come back, {username}!")
+
+
+
+

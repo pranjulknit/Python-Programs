@@ -1,0 +1,117 @@
+1)
+
+>>> import matplotlib.pyplot as plt
+Matplotlib is building the font cache; this may take a moment.
+>>>
+>>>
+>>> squares = [1,4,9,16,25]
+>>> fig,ax = plt.subplots()
+>>> ax.plot(squares)
+[<matplotlib.lines.Line2D object at 0x00000273D2030C40>]
+>>> plt.show()
+
+
+2)
+
+>>> ax.plot(squares, linewidth=3)
+[<matplotlib.lines.Line2D object at 0x00000273D22920D0>]
+>>> #setting chart title and label axes
+>>> ax.set_title("Square Numbers", fontsize = 24)
+Text(0.5, 1.0, 'Square Numbers')
+>>> ax.set_xlabel("Value",fontsize=14)
+Text(0.5, 0, 'Value')
+>>> ax.set_ylabel("Sqaure of Value", fontsize = 14)
+Text(0, 0.5, 'Sqaure of Value')
+>>> #setting size of tick labels
+>>> ax.tick_params(axis="both", labelsize=14)
+>>> plt.show()
+
+
+3)
+
+>>> import matplotlib.pyplot as plt
+>>> plt.style.available
+['Solarize_Light2', '_classic_test_patch', 'bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn', 'seaborn-bright', 'seaborn-colorblind', 'seaborn-dark', 'seaborn-dark-palette', 'seaborn-darkgrid', 'seaborn-deep', 'seaborn-muted', 'seaborn-notebook', 'seaborn-paper', 'seaborn-pastel', 'seaborn-poster', 'seaborn-talk', 'seaborn-ticks', 'seaborn-white', 'seaborn-whitegrid', 'tableau-colorblind10']
+>>> input_values = [1,2,3,4,5]
+>>> squares = [1,4,9,16,25]
+>>> plt.style.use('seaborn')
+>>> fig,ax = plt.subplots()
+>>> ax.plot(input_values,squares,linewidth=3)
+[<matplotlib.lines.Line2D object at 0x00000273D1EB3700>]
+>>> plt.show()
+
+
+4)Plotting and Styling Individual Points with scatter()
+Sometimes, it’s useful to plot and style individual points based on certain
+characteristics. For example, you might plot small values in one color and
+larger values in a different color. You could also plot a large data set with
+mpl_squares.py
+Generating Data 311
+one set of styling options and then emphasize individual points by replotting them with different options.
+To plot a single point, use the scatter() method. Pass the single (x, y)
+values of the point of interest to scatter() to plot those values:
+
+
+>>> import matplotlib.pyplot as plt
+>>> plt.style.use('seaborn')
+>>> fig,ax = plt.subplots()
+>>> ax.scatter(2,4)
+<matplotlib.collections.PathCollection object at 0x00000273D21BB490>
+>>> plt.show()
+
+Let’s style the output to make it more interesting. We’ll add a title, label
+the axes, and make sure all the text is large enough to read:
+
+
+5)Plotting a Series of Points with scatter()
+To plot a series of points, we can pass scatter() separate lists of x- and yvalues, like this:
+
+ import matplotlib.pyplot as plt
+>>> x_values = [1,2,3,4,5]
+>>> y_values = [1,4,9,16,25]
+>>> plt.style.use('seaborn')
+>>> fig,ax = plt.subplots()
+>>> ax.scatter(x_values, y_values, s=100)
+<matplotlib.collections.PathCollection object at 0x00000273D1EA9C40>
+>>> plt.show()
+
+
+>>> import matplotlib.pyplot as plt
+>>> x_values = range(1,1001)
+>>> y_values = [x**2 for x in x_values]
+>>> plt.style.use('seaborn')
+>>> fig,ax = plt.subplots()
+>>> ax.scatter(x_values, y_values, s=10)
+<matplotlib.collections.PathCollection object at 0x00000273D1DEB430>
+>>> ax.set_title("Square Values", fontsize = 24)
+Text(0.5, 1.0, 'Square Values')
+>>># Set the range for each axis.
+>>>ax.axis([0, 1100, 0, 1100000])
+>>> plt.show()
+
+
+6)Defining Custom Colors
+
+To change the color of the points, pass c to scatter() with the name of a
+color to use in quotation marks, as shown here:
+ax.scatter(x_values, y_values, c='red', s=10)
+
+You can also define custom colors using the RGB color model. To define
+a color, pass the c argument a tuple with three decimal values (one each
+for red, green, and blue in that order), using values between 0 and 1. For
+example, the following line creates a plot with light-green dots:
+
+ax.scatter(x_values, y_values, c=(0, 0.8, 0), s=10)
+Values closer to 0 produce dark colors, and values closer to 1 produce
+lighter colors.
+
+7)Saving Your Plots Automatically:-
+
+If you want your program to automatically save the plot to a file, you can
+replace the call to plt.show() with a call to plt.savefig():
+
+plt.savefig('squares_plot.png', bbox_inches='tight')
+
+
+
+
